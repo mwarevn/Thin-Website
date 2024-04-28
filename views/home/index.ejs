@@ -5,12 +5,14 @@
 		<div class="main-content sm:w-96 md:w-2/3 lg:w-2/3 mx-4 mt-5 bg-white p-5 rounded rounded-3">
 			<form action="/getshort" class="flex " enctype="multipart/form-data" method="post">
 				<input id="image" type="file" class="file-input file-input-bordered file-input-warning file-input-md w-full" />
-				<button class="btn btn-neutral text-white ms-5">Get Link</button>
+				<div class="wraper-get-link" style="min-width: 128px;">
+					<!-- <button class="btn btn-neutral text-white ms-5">Get Link</button> -->
+				</div>
 			</form>
 			<div class="divider"></div>
 			<div class="display-result flex">
 				<input type="text" placeholder="Your short link here..." class="input input-bordered input-md w-full" disabled />
-				<button class="btn btn-square ms-5 btn-copy">
+				<button class="btn btn-square ms-5 btn-copy tooltip flex justify-center items-center" data-tip="Click to copy">
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
 						<path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z" />
 					</svg>
@@ -26,9 +28,17 @@
 
 <!-- About -->
 <section class="flex justify-center items-center" style="height: calc(100vh - 500px);">
-	<div class="card max-w-96">
-		<h1 class="text-5xl font-bold">Kiểm soát hoàn toàn các liên kết của bạn</h1>
-		<p class="py-6">Với tư cách thành viên cao cấp của chúng tôi, bạn sẽ có toàn quyền kiểm soát các liên kết của mình. Điều này có nghĩa là bạn có thể thay đổi điểm đến bất kỳ lúc nào bạn muốn. Thêm, thay đổi hoặc xóa bất kỳ bộ lọc nào, bất cứ lúc nào.</p>
+	<div class="card max-w-2/4">
+		<h1 class="text-5xl font-bold m-5">Up ảnh dễ dàng, chia sẻ mọi lúc mọi nơi!</h1>
+		<ul class="py-6 m-5 list-decimal">
+			<li><b class="text-base">Miễn phí 100%: </b><span>Tải ảnh lên và lấy link hoàn toàn miễn phí, không giới hạn dung lượng hay số lượng ảnh.</span></li>
+			<li><b class="text-base">Dễ sử dụng: </b><span>Giao diện đơn giản, thao tác up ảnh và lấy link chỉ trong vài giây.</span></li>
+			<li><b class="text-base">Hình ảnh chất lượng cao: </b><span>Hỗ trợ nhiều định dạng ảnh phổ biến, giữ nguyên chất lượng hình ảnh gốc.</span></li>
+			<li><b class="text-base">Chia sẻ mọi lúc mọi nơi: </b><span>Lấy link ảnh và chia sẻ dễ dàng trên mạng xã hội, diễn đàn, website,...</span></li>
+			<li><b class="text-base">An toàn và bảo mật: </b> <span>Bảo vệ hình ảnh của bạn với các biện pháp an ninh tiên tiến.</span></li>
+			<li><b class="text-base">Hỗ trợ đa nền tảng: </b><span>Truy cập trang web và sử dụng dịch vụ trên mọi thiết bị, từ máy tính đến điện thoại thông minh..</span></li>
+
+		</ul>
 
 	</div>
 </section>
@@ -40,7 +50,7 @@
 				<h1 class="text-5xl font-bold">The Magic of the Internet</h1>
 				<p class="py-6">Imgur is the easiest way to discover and enjoy the magic of the Internet. It’s where you’ll find the funniest, most informative and inspiring images, memes, GIFs, and visual stories served up in an endless stream of bite-sized fun. Powered by a passionate community of people from all around the world, anyone can join to share cool stuff and vote the best to the top.
 					You’ll always find something on Imgur to make you smile and brighten your day.</p>
-				<button class="btn btn-primary">Get Started</button>
+				<a href="#" class="btn btn-primary">Get Started</a>
 			</div>
 		</div>
 	</div>
@@ -49,13 +59,20 @@
 <script>
 	const $ = document.querySelector.bind(document);
 
+	const btnGetLink = '<button class="btn btn-neutral text-white ms-5">Get Link</button>'
+	const wraperGetLink = $(".wraper-get-link");
+
+	wraperGetLink.innerHTML = btnGetLink;
+
 	const form = $("form")
 	const copy = $(".btn-copy");
 
-	const exts = ['jpg', 'jpeg', 'png', 'gif'];
+	const exts = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
 
 	form.onsubmit = async (e) => {
 		e.preventDefault();
+
+		wraperGetLink.innerHTML = '<span class="ms-5 loading loading-spinner loading-lg"></span>'
 
 		if ($("#image").files.length <= 0) {
 			Swal.fire({
@@ -63,6 +80,8 @@
 				text: "Please select an image to upload.",
 				icon: "error"
 			});
+			wraperGetLink.innerHTML = btnGetLink;
+
 			return;
 		}
 
@@ -71,10 +90,13 @@
 		if (!exts.includes(image.name.split('.').reverse()[0].toLowerCase())) {
 			Swal.fire({
 				title: "Error!",
-				text: "Please select a valid image file (jpg, jpeg, png, gif).",
+				text: "Please select a valid image file (jpg, jpeg, png, gif, webp).",
 				icon: "error"
 			});
+			wraperGetLink.innerHTML = btnGetLink;
+
 			return;
+
 		}
 
 		// Create a FormData object to send the image data
@@ -125,6 +147,12 @@
 				text: "An error occurred while processing the image. Please try again.",
 				icon: "error"
 			});
+
 		}
+
+		wraperGetLink.innerHTML = btnGetLink;
+
+
+
 	}
 </script>
